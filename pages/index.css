@@ -4,27 +4,26 @@
 
 /*page*/
 @import url(../blocks/page/page.css);
-@import url(../blocks/page/__content/page__content.css);
-@import url(../blocks/page/__container/page__container.css);
+
+/*link*/
+@import url(../blocks/link/link.css);
 
 /*header*/
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
 
+/*content*/
+@import url(../blocks/content/content.css);
+
 /*profile*/
 @import url(../blocks/profile/profile.css);
-@import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__info/profile__info.css);
-@import url(../blocks/profile/__bio/profile__bio.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
-
-/*button*/
-@import url(../blocks/button/button.css);
-@import url(../blocks/button/__type/button__type_edit.css);
-@import url(../blocks/button/__type/button__type_add.css);
-
-/*hover*/
-@import url(../blocks/hover/hover.css);
+@import url(../blocks/profile/__info-name/profile__info-name.css);
+@import url(../blocks/profile/__button/profile__button.css);
+@import url(../blocks/profile/__button/_edit/profile__button_edit.css);
+@import url(../blocks/profile/__info-job/profile__info-job.css);
+@import url(../blocks/profile/__button/_add/profile__button_add.css);
 
 /*places*/
 @import url(../blocks/places/__list/places__list.css);
@@ -43,9 +42,10 @@
 
 /*popup*/
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__opened/popup__opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
-@import url(../blocks/popup/__figure/popup__figure.css);
-@import url(../blocks/popup/__opened/popup_opened.css);
-@import url(../blocks/popup/__photo-container/popup__photo-container.css);
-@import url(../blocks/popup/__photo/popup_photo.css);
+@import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__items/popup__items.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__button-save/popup__button-save.css);

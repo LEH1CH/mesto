@@ -1,25 +1,19 @@
 .profile__info {
-    display: grid;
-    grid-template-areas:
-      "name button"
-      "bio bio";
-    gap: 6px 20px;
-    margin: 0 30px;
-    grid-template-rows: auto;
+  max-width: 680px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  column-gap: 18px;
+  align-items: end;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__info {
+    max-width: 282px;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3, auto);
+    justify-items: center;
+    column-gap: 10px;
+    padding-bottom: 30px;
   }
-  
-  @media screen and (max-width: 1024px) {
-    .profile__info {
-      margin: 0 15px;
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-    .profile__info {
-      max-width: 100%;
-      width: 100%;
-      justify-content: center;
-      gap: 14px 10px;
-      margin: 26px auto 36px;
-    }
-  }
+}

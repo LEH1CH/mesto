@@ -3,7 +3,7 @@
     width: 22px;
     flex-basis: 22px;
     flex-shrink: 0;
-    background-image: url(../../../images/Vector.svg);
+    background-image: url(../../../images/place-like.svg);
     background-repeat: no-repeat;
     background-position: center;
     object-fit: cover;
@@ -16,3 +16,5 @@
       cursor: pointer;
     }
   }
+
+  
