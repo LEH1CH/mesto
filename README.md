@@ -28,7 +28,7 @@
 
 **GitHub Pages**
 
-* [Ссылка на проект в GitHub Pages](https://leh1ch.github.io/mesto/Index.html)
+* [Ссылка на проект в GitHub Pages](https://leh1ch.github.io/mesto)
 
 **Планы на будущее**
 
