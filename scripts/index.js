@@ -1,17 +1,13 @@
 let content = document.querySelector('.content');
 let popup = content.querySelector('.popup');                            // Находим попап
-let profileEditButton = content.querySelector('.profile__edit-button'); // Находим кнопку редактирования профиля
+let profileEditButton = content.querySelector('.button_type_edit'); // Находим кнопку редактирования профиля
 let popupButtonClose = popup.querySelector('.popup__close');            // Нахоидим кнопку закрытия формы
 let popupForm = popup.querySelector('.popup__container');               // Находим форму в DOM
-let nameInput = popupForm.querySelector('.popup__input-name');          // Находим поля формы в DOM
-let jobInput = popupForm.querySelector('.popup__input-job');            // Находим поля формы в DOM
+let nameInput = popupForm.querySelector('.popup_input_name');          // Находим поля формы в DOM
+let jobInput = popupForm.querySelector('.popup_input_job');            // Находим поля формы в DOM
 // Выбераем элементы, куда должны быть вставлены значения полей
 let profileName = content.querySelector('.profile__info-name');
 let profileJob = content.querySelector('.profile__info-job');
-
-
-
-
 
 
 function popupStateChange() {
@@ -20,14 +16,8 @@ function popupStateChange() {
 }
 
 
-
-
-
 profileEditButton.addEventListener('click', popupStateChange);          // Клик кнопки редактирования профиля
 popupButtonClose.addEventListener('click', popupStateChange);           // Клик кнопки закрытия формы
-
-
-
 
 
 // Обработчик «отправки» формы, хотя пока
