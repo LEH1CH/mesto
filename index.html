@@ -26,52 +26,10 @@
 
         <section class="places">
             <ul class="places__list">
-                <li class="place">
-                    <img class="place__photo" src="./images/elbrus.png" alt="Гора эльбрус">
-                    <div class="place__info">
-                        <h2 class="place__title">Гора Эльбрус</h2>
-                        <button class="place__like link" type="button"></button>
-                    </div>
-                </li>
-                <li class="place">
-                    <img class="place__photo" src="./images/gora1.jpg" alt="Гора 1">
-                    <div class="place__info">
-                        <h2 class="place__title">Гора Эльбрус</h2>                        
-                        <button class="place__like link" type="button"></button>                        
-                    </div>
-                </li>
-                <li class="place">
-                    <img class="place__photo" src="./images/gora2.jpg" alt="Гора 2">
-                    <div class="place__info">
-                        <h2 class="place__title">Гора Эльбрус</h2>                      
-                        <button class="place__like link" type="button"></button>                       
-                    </div>
-                </li>
-                <li class="place">
-                    <img class="place__photo" src="./images/gora3.jpg" alt="Гора 3">
-                    <div class="place__info">
-                        <h2 class="place__title">Гора Эльбрус</h2>                       
-                        <button class="place__like link" type="button"></button>                        
-                    </div>
-                </li>
-                <li class="place">
-                    <img class="place__photo" src="./images/gora4.jpg" alt="Гора 4">
-                    <div class="place__info">
-                        <h2 class="place__title">Гора Эльбрус</h2>
-                        <button class="place__like link" type="button"></button>
-                    </div>
-                </li>
-                <li class="place">
-                    <img class="place__photo" src="./images/gora5.jpg" alt="Гора 5">
-                    <div class="place__info">
-                        <h2 class="place__title">Гора Эльбрус</h2> 
-                        <button class="place__like link" type="button"></button>
-                    </div>
-                </li>
+                
             </ul>
-
-
         </section>
+
             <!-- попап редактирования профиля -->
         <div class="popup popup_for_edit-profile">
             <form class="popup__container" name="profile-edit-form">
@@ -110,7 +68,18 @@
     <footer class="footer">
         <p class="footer__copyright">&copy; 2023 Алексей Усманов</p>
     </footer>
-    
+
+    <template class="place-template">
+        <li class="place">
+            <img class="place__photo" src="#" alt="Здесь должна быть ваша картинка, но что-то пошло не так :(">
+            <button type="button" class="place__delete link"></button>
+            <div class="place__info">
+                <h2 class="place__title">Гора Эльбрус</h2>
+                <button class="place__like link" type="button"></button>
+            </div>
+        </li>
+    </template>
+
     <script src="./scripts/index.js"></script>
     
 </body>
