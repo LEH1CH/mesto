@@ -60,9 +60,8 @@ const openPopup = (popup) => {
 }
 
 profileEditButton.addEventListener('click', () => openPopup(popupProfile));
-if (addPlaceButton) {
 addPlaceButton.addEventListener('click', () => openPopup(popupAddPlace));
-}
+
 
 /*Удаление класса popup_opened показывающий в коде открыт попап или нет*/
 const closePopup = (popup) => {
