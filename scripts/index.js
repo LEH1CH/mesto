@@ -59,7 +59,10 @@ const openPopup = (popup) => {
   popup.classList.add('popup_opened');
 }
 
-profileEditButton.addEventListener('click', () => openPopup(popupProfile));
+profileEditButton.addEventListener('click', () => {openPopup(popupProfile);
+  inputProfileName.value = profileName.textContent;
+  inputProfileJob.value = profileJob.textContent;
+});
 addPlaceButton.addEventListener('click', () => openPopup(popupAddPlace));
 
 
