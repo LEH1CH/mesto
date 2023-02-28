@@ -52,14 +52,23 @@ const fullImage = popupImage.querySelector('.popup__full-image');               
 const fullImageCaption = popupImage.querySelector('.popup__caption');                    // Подпись в попапе
 
 
-
+/*Закрытие попапа клавишей esc*/
+const closeByEscape = (evt) => {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}
 
 /*Добавление класса popup_opened показывающий в коде открыт попап или нет*/
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
 }
 
-profileEditButton.addEventListener('click', () => {openPopup(popupProfile);
+profileEditButton.addEventListener('click', () => {
+  profileForm.reset();
+  openPopup(popupProfile);
   inputProfileName.value = profileName.textContent;
   inputProfileJob.value = profileJob.textContent;
 });
@@ -69,6 +78,7 @@ addPlaceButton.addEventListener('click', () => openPopup(popupAddPlace));
 /*Удаление класса popup_opened показывающий в коде открыт попап или нет*/
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
 }
 
 popups.forEach((popup) => {
