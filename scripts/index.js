@@ -68,9 +68,9 @@ const openPopup = (popup) => {
 
 profileEditButton.addEventListener('click', () => {
   profileForm.reset();
-  openPopup(popupProfile);
   inputProfileName.value = profileName.textContent;
   inputProfileJob.value = profileJob.textContent;
+  openPopup(popupProfile);
 });
 addPlaceButton.addEventListener('click', () => openPopup(popupAddPlace));
 
