@@ -24,13 +24,3 @@ const initialPlace = [
     link: "./images/gora5.jpg",
   },
 ];
-
-const validationConfig = {
-  formSelector: ".popup__container",
-  fieldSetSelector: ".popup__items",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button-save",
-  inactiveButtonClass: "popup__button-save_disabled",
-  errorClass: "popup__error_visible",
-  inputErrorClass: "popup__input_type_error",
-};

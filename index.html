@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
+    <script src="./scripts/cards.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
     <title>Проект Место</title>
   </head>
 
@@ -34,7 +37,12 @@
 
       <!-- попап редактирования профиля -->
       <div class="popup popup_for_edit-profile">
-        <form class="popup__container" name="profile-edit-form" novalidate>
+        <form
+          class="popup__container"
+          id="profile-popup-form"
+          name="profile-edit-form"
+          novalidate
+        >
           <button type="button" class="popup__close link"></button>
           <p class="popup__title">Редактировать профиль</p>
           <fieldset class="popup__items">
@@ -60,7 +68,11 @@
               required
             />
             <span class="popup__error user-job-error"></span>
-            <button type="submit" class="popup__button-save link">
+            <button
+              type="submit"
+              class="popup__button-save link"
+              name="submitBtn"
+            >
               Сохранить
             </button>
           </fieldset>
@@ -68,7 +80,12 @@
       </div>
       <!-- попап добавления места -->
       <div class="popup popup_for_add-place">
-        <form class="popup__container">
+        <form
+          class="popup__container"
+          id="place-popup-form"
+          name="placePopupForm"
+          novalidate
+        >
           <button type="button" class="popup__close link"></button>
           <p class="popup__title">Новое место</p>
           <fieldset class="popup__items">
@@ -94,7 +111,11 @@
               required
             />
             <span class="popup__error place-link-error"></span>
-            <button type="submit" class="popup__button-save link">
+            <button
+              type="submit"
+              class="popup__button-save link"
+              name="submitBtn"
+            >
               Создать
             </button>
           </fieldset>
@@ -128,9 +149,5 @@
         </div>
       </li>
     </template>
-
-    <script src="./scripts/cards.js"></script>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validate.js"></script>
   </body>
 </html>

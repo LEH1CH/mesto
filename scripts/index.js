@@ -28,6 +28,13 @@ const popupImage = document.querySelector(".popup_for_full-image"); // Попа�
 const fullImage = popupImage.querySelector(".popup__full-image"); // Картинка в попапе
 const fullImageCaption = popupImage.querySelector(".popup__caption"); // Подпись в попапе
 
+//Убираем мелькание попапов при обновлении страницы
+setTimeout(() => {
+  popupProfile.classList.add("popup_transition");
+  placeForm.classList.add("popup_transition");
+  popupImage.classList.add("popup_transition");
+}, 1);
+
 /*Закрытие попапа клавишей esc*/
 const closeByEscape = (evt) => {
   if (evt.key === "Escape") {
