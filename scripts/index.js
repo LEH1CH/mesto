@@ -133,9 +133,11 @@ const handleAddPlaceSubmit = (evt) => {
   /*Готовим карточку и вставляем ee*/
   const placeElement = createPlace(element);
   placesList.prepend(placeElement);
-
   placeForm.reset();
   closePopup(popupAddPlace);
+  const saveButton = evt.submitter;
+  saveButton.disabled = true;
+  saveButton.classList.add("popup__button-save_disabled");
 };
 
 placeForm.addEventListener("submit", handleAddPlaceSubmit); // Прикрепляем обработчик к форме
