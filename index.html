@@ -2,12 +2,8 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <script src="./scripts/cards.js" defer></script>
-    <script src="./scripts/index.js" defer></script>
-    <script src="./scripts/validate.js" defer></script>
     <title>Проект Место</title>
   </head>
 
@@ -25,105 +21,95 @@
             class="profile__avatar"
           />
           <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-          <button type="button" class="button button_type_edit link"></button>
+          <button
+            type="button"
+            class="profile__button profile__button_edit link"
+          ></button>
           <p class="profile__info-job">Исследователь океана</p>
         </div>
-        <button type="button" class="button button_type_add link"></button>
+        <button
+          type="button"
+          class="profile__button profile__button_add link"
+        ></button>
       </section>
 
-      <section class="places" aria-label="Места">
-        <ul class="places__list"></ul>
+      <section class="elements" aria-label="Места">
+        <ul class="cards"></ul>
       </section>
 
       <!-- попап редактирования профиля -->
       <div class="popup popup_for_edit-profile">
-        <form
-          class="popup__container"
-          id="profile-popup-form"
-          name="profile-edit-form"
-          novalidate
-        >
+        <form class="popup__container" novalidate>
           <button type="button" class="popup__close link"></button>
           <p class="popup__title">Редактировать профиль</p>
           <fieldset class="popup__items">
             <input
-              id="user-name"
+              required
               minlength="2"
               maxlength="40"
               type="text"
               class="popup__input popup__input_name"
+              name="userName"
               placeholder="Имя"
-              name="name"
-              required
+              value="Жак-Ив Кусто"
+              id="user-name"
             />
             <span class="popup__error user-name-error"></span>
+
             <input
+              required
               minlength="2"
               maxlength="200"
               type="text"
               class="popup__input popup__input_job"
-              placeholder="Описание"
-              name="about"
+              name="userJob"
+              placeholder="Род деятельности"
+              value="Исследователь океана"
               id="user-job"
-              required
             />
             <span class="popup__error user-job-error"></span>
-            <button
-              type="submit"
-              class="popup__button-save link"
-              name="submitBtn"
-            >
-              Сохранить
-            </button>
+
+            <button type="submit" class="popup__button link">Сохранить</button>
           </fieldset>
         </form>
       </div>
       <!-- попап добавления места -->
-      <div class="popup popup_for_add-place">
-        <form
-          class="popup__container"
-          id="place-popup-form"
-          name="placePopupForm"
-          novalidate
-        >
+      <div class="popup popup_for_add-card">
+        <form class="popup__container">
           <button type="button" class="popup__close link"></button>
           <p class="popup__title">Новое место</p>
           <fieldset class="popup__items">
             <input
+              required
+              type="text"
               minlength="2"
               maxlength="30"
-              type="text"
-              class="popup__input popup__input_place-name"
-              value=""
-              placeholder="Название"
+              class="popup__input popup__input_card-name"
               name="cardName"
-              id="place-name"
-              required
-            />
-            <span class="popup__error place-name-error"></span>
-            <input
-              type="url"
-              class="popup__input popup__input_place-link-image"
+              placeholder="Название"
               value=""
-              placeholder="Ссылка на картинку"
-              name="cardlink"
-              id="place-link"
-              required
+              id="card-name"
             />
-            <span class="popup__error place-link-error"></span>
-            <button
-              type="submit"
-              class="popup__button-save link"
-              name="submitBtn"
-            >
-              Создать
-            </button>
+            <span class="popup__error card-name-error"></span>
+
+            <input
+              required
+              type="url"
+              class="popup__input popup__input_card-link-image"
+              name="cardLink"
+              placeholder="Ссылка на картинку"
+              value=""
+              id="card-link"
+            />
+            <span class="popup__error card-link-error"></span>
+
+            <button type="submit" class="popup__button link">Создать</button>
           </fieldset>
         </form>
       </div>
       <!-- попап открытия изображения -->
       <div class="popup popup_for_full-image">
-        <figure class="popup__container popup__container_image">
+        <figure class="popup__container-image">
           <button type="button" class="popup__close link"></button>
           <img class="popup__full-image" src="#" alt="" />
           <figcaption class="popup__caption"></figcaption>
@@ -135,19 +121,18 @@
       <p class="footer__copyright">&copy; 2023 Алексей Усманов</p>
     </footer>
 
-    <template class="place-template">
-      <li class="place">
-        <img
-          class="place__photo"
-          src="#"
-          alt="Здесь должна быть ваша картинка, но что-то пошло не так"
-        />
-        <button type="button" class="place__delete link"></button>
-        <div class="place__info">
-          <h2 class="place__title">Гора Эльбрус</h2>
-          <button class="place__like link" type="button"></button>
+    <template class="card-template">
+      <li class="cards__item">
+        <img class="cards__image" src="#" alt="" />
+        <button type="button" class="cards__delete link"></button>
+        <div class="cards__info">
+          <h2 class="cards__title"></h2>
+          <button class="cards__like link" type="button"></button>
         </div>
       </li>
     </template>
+
+    <script src="./scripts/constants.js"></script>
+    <script src="./scripts/index.js" type="module"></script>
   </body>
 </html>
