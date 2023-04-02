@@ -31,13 +31,6 @@ const elements = document.querySelector(".cards");
 //Id шаблона вёрстки новой карточки
 const newCardTemplate = "#article-id";
 
-//Убираем мелькание попапов при обновлении страницы
-setTimeout(() => {
-  profilePopup.classList.add("popup_transition");
-  cardPopup.classList.add("popup_transition");
-  imagePopup.classList.add("popup_transition");
-}, 1);
-
 //Функция включения popup
 const openPopup = function (popup) {
   popup.classList.add("popup_opened");
