@@ -103,7 +103,7 @@ editButton.addEventListener("click", () => {
   inputNameField.value = currentNameValue.textContent;
   inputProfField.value = currentProfValue.textContent;
   openPopup(profilePopup);
-  profilePopupFormValidator.resetFormErrors();
+  profilePopupFormValidator.resetValidation();
 });
 
 //Обработка submit в форме popup-окна редактирования профиля
@@ -123,7 +123,7 @@ document.forms["profilePopupForm"].addEventListener(
 //Вызов popup-окна добавления карточки нажатием на кнопку с крестиком
 addButton.addEventListener("click", function () {
   openPopup(cardPopup);
-  addCardPopupFormValidator.resetFormErrors();
+  addCardPopupFormValidator.resetValidation();
 });
 
 //Обработка submit в форме popup-окна добавления карточки
