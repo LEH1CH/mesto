@@ -26,11 +26,11 @@ export const initialCards = [
 ];
 
 export const config = {
-  formSelector: ".popup__container", // form
-  fieldSetSelector: ".popup__items", // fieldset
-  inputSelector: ".popup__input", // input
-  submitButtonSelector: ".popup__button", // submit
-  inactiveButtonClass: "popup__button_disabled", // submit disabled
-  inputErrorClass: "popup__input_type_error", // red border-bottom
-  errorClass: "popup__error_visible", // show mistakes
+  formSelector: ".popup__container",
+  fieldSetSelector: ".popup__items",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
 };
