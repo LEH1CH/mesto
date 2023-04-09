@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Alexey" />
     <link rel="stylesheet" href="./pages/index.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Проект Место</title>
   </head>
 
@@ -16,7 +18,7 @@
       <section class="profile" aria-label="Профиль">
         <div class="profile__info">
           <img
-            src="./images/profile-avatar.jpg"
+            src="<%=require('./images/profile-avatar.jpg')%>"
             alt="Аватар"
             class="profile__avatar"
           />
@@ -129,8 +131,5 @@
         </div>
       </li>
     </template>
-
-    <script src="./scripts/constants.js" type="module"></script>
-    <script src="./scripts/index.js" type="module"></script>
   </body>
 </html>
