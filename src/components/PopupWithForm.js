@@ -17,8 +17,8 @@ export default class PopupWithForm extends Popup {
   };
 
   //Метод установки слушателей событий на попап и форму
-  _setEventListeners() {
-    super._setEventListeners();
+  setEventListeners() {
+    super.setEventListeners();
     this._form.addEventListener("submit", this._handlerSubmitForm);
   }
 

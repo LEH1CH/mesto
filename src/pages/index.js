@@ -15,6 +15,14 @@ const addButton = document.querySelector(".profile__button_add");
 //Id шаблона вёрстки новой карточки
 const newCardTemplate = "#article-id";
 
+//Создаём экземпляр валидатора формы редактирования данных профиля
+const profilePopupFormValidator = new FormValidator(config, profilePopupForm);
+profilePopupFormValidator.enableValidation();
+
+//Создаём экземпляр валидатора формы добавления карточек
+const addCardPopupFormValidator = new FormValidator(config, addCardForm);
+addCardPopupFormValidator.enableValidation();
+
 //Создаём экземпляр попапа с изображением
 const iPopup = new PopupWithImage({
   popupSelector: ".popup_for_full-image",
@@ -87,11 +95,3 @@ addButton.addEventListener("click", function () {
   cPopup.openPopup();
   addCardPopupFormValidator.resetValidation();
 });
-
-//Создаём экземпляр валидатора формы редактирования данных профиля
-const profilePopupFormValidator = new FormValidator(config, profilePopupForm);
-profilePopupFormValidator.enableValidation();
-
-//Создаём экземпляр валидатора формы добавления карточек
-const addCardPopupFormValidator = new FormValidator(config, addCardForm);
-addCardPopupFormValidator.enableValidation();

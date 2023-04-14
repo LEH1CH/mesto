@@ -1,27 +1,34 @@
+import zaliv from "../images/zaliv.jpg";
+import ozero from "../images/gora1.jpg";
+import doroga from "../images/doroga.jpg";
+import ostrovok from "../images/gora3.jpg";
+import otrajenie from "../images/gora4.jpg";
+import gori from "../images/gora5.jpg";
+
 export const initialCards = [
   {
     name: "Залив",
-    link: "./images/krasivii-zaliv.jpg",
+    link: zaliv,
   },
   {
     name: "Озеро",
-    link: "./images/gora1.jpg",
+    link: ozero,
   },
   {
-    name: "Закат",
-    link: "./images/gora2.jpg",
+    name: "Дорога",
+    link: doroga,
   },
   {
     name: "Островок",
-    link: "./images/gora3.jpg",
+    link: ostrovok,
   },
   {
     name: "Отражение",
-    link: "./images/gora4.jpg",
+    link: otrajenie,
   },
   {
     name: "Горы",
-    link: "./images/gora5.jpg",
+    link: gori,
   },
 ];
 
