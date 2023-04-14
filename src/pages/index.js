@@ -31,8 +31,8 @@ const iPopup = new PopupWithImage({
 });
 iPopup.setEventListeners();
 
-const handleCardClick = (name, link) => {
-  iPopup.openPopup(name, link);
+const handleCardClick = (cardData) => {
+  iPopup.openPopup(cardData);
 };
 
 //Создаём экземпляр класса Section
