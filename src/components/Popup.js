@@ -4,7 +4,7 @@ export default class Popup {
   }
 
   //Установка обработчиков попапа
-  _setEventListeners() {
+  setEventListeners() {
     this._popup.addEventListener("mousedown", this._handlerPopupCloseOnClick);
     this._popup
       .querySelector(".popup__close")

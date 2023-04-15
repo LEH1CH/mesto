@@ -14,6 +14,7 @@ const addButton = document.querySelector(".profile__button_add");
 
 //Id шаблона вёрстки новой карточки
 const newCardTemplate = "#article-id";
+const cardsSectionSelector = ".cards";
 
 //Создаём экземпляр валидатора формы редактирования данных профиля
 const profilePopupFormValidator = new FormValidator(config, profilePopupForm);
@@ -29,7 +30,6 @@ const iPopup = new PopupWithImage({
   imageSelector: ".popup__full-image",
   subtitleSelector: ".popup__caption",
 });
-iPopup.setEventListeners();
 
 const handleCardClick = (cardData) => {
   iPopup.openPopup(cardData);
@@ -40,16 +40,20 @@ const section = new Section(
   {
     data: initialCards,
     renderer: (cardData) => {
-      const newCard = new Card(cardData, newCardTemplate, handleCardClick);
-      const cardElement = newCard.createCard();
-      return cardElement;
+      section.setItem(generateCard(cardData));
     },
   },
-  ".elements"
+  cardsSectionSelector
 );
 
+const generateCard = (cardData) => {
+  const newCard = new Card(cardData, newCardTemplate, handleCardClick);
+  const cardElement = newCard.createCard();
+  return cardElement;
+};
+
 //Отрисовываем карточки из initialCards
-section.renderInitialCards();
+section.renderItems();
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__info-name",
@@ -77,17 +81,16 @@ const cPopup = new PopupWithForm(
     inputSelector: ".popup__input",
   },
   (cardData) => {
-    section.renderCard(cardData);
+    section.renderItems(cardData);
   }
 );
-cPopup.setEventListeners();
 
 //Вызов popup с формой редактирования данных профиля нажатием на кнопку с ручкой
 editButton.addEventListener("click", () => {
   const values = userInfo.getUserInfo();
   pPopup.setInputValues(values);
   pPopup.openPopup();
-  profilePopupFormValidator.resetFormErrors();
+  profilePopupFormValidator.resetValidation();
 });
 
 //Вызов popup-окна добавления карточки нажатием на кнопку с крестиком
@@ -95,3 +98,7 @@ addButton.addEventListener("click", function () {
   cPopup.openPopup();
   addCardPopupFormValidator.resetValidation();
 });
+
+iPopup.setEventListeners();
+cPopup.setEventListeners();
+pPopup.setEventListeners();
