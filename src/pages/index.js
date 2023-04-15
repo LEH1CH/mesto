@@ -71,7 +71,6 @@ const pPopup = new PopupWithForm(
     userInfo.setUserInfo(values);
   }
 );
-pPopup.setEventListeners();
 
 //Создаём экземпляр попапа с формой добавления карточки места
 const cPopup = new PopupWithForm(
