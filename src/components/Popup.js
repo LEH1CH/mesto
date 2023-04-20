@@ -12,10 +12,10 @@ export default class Popup {
   }
 
   //Функция включения popup
-  openPopup = function () {
+  openPopup() {
     this._popup.classList.add("popup_opened");
     window.addEventListener("keydown", this._handlerPopupCloseOnEscKeyDown);
-  };
+  }
 
   //Обработчик закрытия поклику на крестик или оверлей
   _handlerPopupCloseOnExitClick = () => {

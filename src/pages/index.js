@@ -14,7 +14,6 @@ const addButton = document.querySelector(".profile__button_add");
 
 //Id шаблона вёрстки новой карточки
 const newCardTemplate = "#article-id";
-const cardsSectionSelector = ".cards";
 
 //Создаём экземпляр валидатора формы редактирования данных профиля
 const profilePopupFormValidator = new FormValidator(config, profilePopupForm);
