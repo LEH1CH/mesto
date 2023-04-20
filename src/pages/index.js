@@ -14,6 +14,7 @@ const addButton = document.querySelector(".profile__button_add");
 
 //Id шаблона вёрстки новой карточки
 const newCardTemplate = "#article-id";
+const cardsSectionSelector = ".cards";
 
 //Создаём экземпляр валидатора формы редактирования данных профиля
 const profilePopupFormValidator = new FormValidator(config, profilePopupForm);
@@ -22,6 +23,17 @@ profilePopupFormValidator.enableValidation();
 //Создаём экземпляр валидатора формы добавления карточек
 const addCardPopupFormValidator = new FormValidator(config, addCardForm);
 addCardPopupFormValidator.enableValidation();
+
+//Создаём экземпляр попапа с изображением
+const iPopup = new PopupWithImage({
+  popupSelector: ".popup_for_full-image",
+  imageSelector: ".popup__full-image",
+  subtitleSelector: ".popup__caption",
+});
+
+const handleCardClick = (cardData) => {
+  iPopup.openPopup(cardData);
+};
 
 //Создаём экземпляр класса Section
 const section = new Section(
@@ -36,20 +48,9 @@ const section = new Section(
   ".cards"
 );
 
-const handleCardClick = (cardData) => {
-  iPopup.openPopup(cardData);
-};
-
 const userInfo = new UserInfo({
   nameSelector: ".profile__info-name",
   profSelector: ".profile__info-job",
-});
-
-//Создаём экземпляр попапа с изображением
-const iPopup = new PopupWithImage({
-  popupSelector: ".popup_for_full-image",
-  imageSelector: ".popup__full-image",
-  subtitleSelector: ".popup__caption",
 });
 
 //Создаём экземпляр попапа с формой редактирования данных профиля
