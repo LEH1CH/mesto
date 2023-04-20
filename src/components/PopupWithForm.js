@@ -1,42 +1,40 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor({ popupSelector, formSelector, inputSelector }, submitCallback) {
+  constructor(popupSelector, handleSubmitForm) {
     super(popupSelector);
-    this._form = this._popup.querySelector(formSelector);
-    this._inputList = this._popup.querySelectorAll(inputSelector);
-    this._submitCallback = submitCallback;
+    this._form = this._popup.querySelector(".popup__container");
+    this._inputList = this._popup.querySelectorAll(".popup__input");
+    this._handleSubmitForm = handleSubmitForm;
   }
 
-  //Обработчик сабмита формы
-  _handlerSubmitForm = (evt) => {
-    evt.preventDefault();
-    const values = this._getInputValues();
-    this._submitCallback(values);
-    this.closePopup();
-  };
+  _getInputValues() {
+    this._formValues = {};
+    this._inputList.forEach((input) => {
+      this._formValues[input.name] = input.value;
+    });
 
-  //Метод установки слушателей событий на попап и форму
+    return this._formValues;
+  }
+
+  setInputValues(data) {
+    this._inputList.forEach((input) => {
+      if (data[input.name]) {
+        input.value = data[input.name];
+      }
+    });
+  }
+
   setEventListeners() {
     super.setEventListeners();
-    this._form.addEventListener("submit", this._handlerSubmitForm);
+    this._form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._handleSubmitForm(this._getInputValues());
+    });
   }
 
-  //Метод получения данных полей ввода
-  _getInputValues() {
-    const values = {};
-    Array.from(this._inputList).forEach((el) => (values[el.name] = el.value));
-    return values;
-  }
-
-  //Метод установки данных полей ввода (для полей формы редактирования данных профиля)
-  setInputValues(values) {
-    this._inputList.forEach((el) => (el.value = values[el.name]));
-  }
-
-  //Закрытия попапа
-  closePopup() {
-    super.closePopup();
-    setTimeout(() => this._form.reset(), 400);
+  close() {
+    this._form.reset();
+    super.close();
   }
 }

@@ -1,9 +1,9 @@
-import zaliv from "../images/zaliv.jpg";
-import ozero from "../images/gora1.jpg";
-import doroga from "../images/doroga.jpg";
-import ostrovok from "../images/gora3.jpg";
-import otrajenie from "../images/gora4.jpg";
-import gori from "../images/gora5.jpg";
+const zaliv = new URL("../images/zaliv.jpg", import.meta.url);
+const ozero = new URL("../images/gora1.jpg", import.meta.url);
+const doroga = new URL("../images/doroga.jpg", import.meta.url);
+const ostrovok = new URL("../images/gora3.jpg", import.meta.url);
+const otrajenie = new URL("../images/gora4.jpg", import.meta.url);
+const gori = new URL("../images/gora5.jpg", import.meta.url);
 
 export const initialCards = [
   {
