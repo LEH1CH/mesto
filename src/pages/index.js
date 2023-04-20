@@ -23,17 +23,6 @@ profilePopupFormValidator.enableValidation();
 const addCardPopupFormValidator = new FormValidator(config, addCardForm);
 addCardPopupFormValidator.enableValidation();
 
-//Создаём экземпляр попапа с изображением
-const iPopup = new PopupWithImage({
-  popupSelector: ".popup_for_full-image",
-  imageSelector: ".popup__full-image",
-  subtitleSelector: ".popup__caption",
-});
-
-const handleCardClick = (cardData) => {
-  iPopup.openPopup(cardData);
-};
-
 //Создаём экземпляр класса Section
 const section = new Section(
   {
@@ -47,12 +36,20 @@ const section = new Section(
   ".cards"
 );
 
-//Отрисовываем карточки из initialCards
-section.renderInitialCards();
+const handleCardClick = (cardData) => {
+  iPopup.openPopup(cardData);
+};
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__info-name",
   profSelector: ".profile__info-job",
+});
+
+//Создаём экземпляр попапа с изображением
+const iPopup = new PopupWithImage({
+  popupSelector: ".popup_for_full-image",
+  imageSelector: ".popup__full-image",
+  subtitleSelector: ".popup__caption",
 });
 
 //Создаём экземпляр попапа с формой редактирования данных профиля
@@ -69,7 +66,6 @@ const pPopup = new PopupWithForm(
 );
 
 //Создаём экземпляр попапа с формой добавления карточки места
-
 const cPopup = new PopupWithForm(
   {
     popupSelector: ".popup_for_add-card",
@@ -99,3 +95,6 @@ addButton.addEventListener("click", function () {
 iPopup.setEventListeners();
 cPopup.setEventListeners();
 pPopup.setEventListeners();
+
+//Отрисовываем карточки из initialCards
+section.renderInitialCards();
