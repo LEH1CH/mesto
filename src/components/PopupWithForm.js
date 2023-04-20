@@ -1,40 +1,57 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, handleSubmitForm) {
+  constructor({ popupSelector, formSelector, inputSelector }, submitCallback) {
     super(popupSelector);
-    this._form = this._popup.querySelector(".popup__container");
-    this._inputList = this._popup.querySelectorAll(".popup__input");
-    this._handleSubmitForm = handleSubmitForm;
+
+    this._form = this._popup.querySelector(formSelector);
+
+    this._inputList = this._popup.querySelectorAll(inputSelector);
+
+    this._submitCallback = submitCallback;
   }
 
-  _getInputValues() {
-    this._formValues = {};
-    this._inputList.forEach((input) => {
-      this._formValues[input.name] = input.value;
-    });
+  //Обработчик сабмита формы
 
-    return this._formValues;
-  }
+  _handlerSubmitForm = (evt) => {
+    evt.preventDefault();
 
-  setInputValues(data) {
-    this._inputList.forEach((input) => {
-      if (data[input.name]) {
-        input.value = data[input.name];
-      }
-    });
-  }
+    const values = this._getInputValues();
+
+    this._submitCallback(values);
+
+    this.closePopup();
+  };
+
+  //Метод установки слушателей событий на попап и форму
 
   setEventListeners() {
     super.setEventListeners();
-    this._form.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._handleSubmitForm(this._getInputValues());
-    });
+
+    this._form.addEventListener("submit", this._handlerSubmitForm);
   }
 
-  close() {
-    this._form.reset();
-    super.close();
+  //Метод получения данных полей ввода
+
+  _getInputValues() {
+    const values = {};
+
+    Array.from(this._inputList).forEach((el) => (values[el.name] = el.value));
+
+    return values;
+  }
+
+  //Метод установки данных полей ввода (для полей формы редактирования данных профиля)
+
+  setInputValues(values) {
+    this._inputList.forEach((el) => (el.value = values[el.name]));
+  }
+
+  //Закрытия попапа
+
+  closePopup() {
+    super.closePopup();
+
+    setTimeout(() => this._form.reset(), 400);
   }
 }

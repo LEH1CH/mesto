@@ -1,41 +1,46 @@
 export default class Card {
-  constructor(cardData, newCardTemplate, handleCardClick) {
-    this._name = cardData.cardName;
-    this._link = cardData.cardLink;
-    this._template = document.querySelector(newCardTemplate).content;
+  constructor({ name, link }, newCardTemplate, handleCardClick) {
+    this._name = name;
+    this._link = link;
+    this._newCardTemplate = newCardTemplate;
     this._handleCardClick = handleCardClick;
   }
 
-  _fillCard = () => {
-    this._view.querySelector(".cards__title").textContent = this._name;
-    this._image = this._view.querySelector(".cards__image");
-    this._image.src = this._link;
-    this._image.alt = this._name;
+  _getTemplate() {
+    const cardTemplate = document
+      .querySelector(this._newCardTemplate)
+      .content.firstElementChild.cloneNode(true);
+    return cardTemplate;
+  }
+
+  _handleRemoveClick = () => {
+    this._newCard.remove();
+    this._newCard = null;
   };
 
-  _zoomCard = () => this._handleCardClick(this._link, this._name);
-
-  _likeCard = () =>
-    this._cardLikeElement.classList.toggle("cards__like_active");
-
-  _deleteCard = () => {
-    this._view.remove();
-    this._view = null;
+  _handleLikeClick = (evt) => {
+    evt.target.classList.toggle("cards__like_active");
   };
 
   _setEventListeners = () => {
-    this._image.addEventListener("click", this._zoomCard);
-    this._cardLikeElement = this._view.querySelector(".cards__like");
-    this._cardLikeElement.addEventListener("click", this._likeCard);
-    this._view
+    this._newCard
+      .querySelector(".cards__like")
+      .addEventListener("click", this._handleLikeClick);
+    this._newCard
       .querySelector(".cards__delete")
-      .addEventListener("click", this._deleteCard);
+      .addEventListener("click", this._handleRemoveClick);
+    this._newCardImage.addEventListener("click", () => {
+      this._handleCardClick({ name: this._name, link: this._link });
+    });
   };
 
-  createCard = () => {
-    this._view = this._template.cloneNode(true).children[0];
-    this._fillCard();
+  createCard() {
+    this._newCard = this._getTemplate();
+    this._newCardImage = this._newCard.querySelector(".cards__image");
+    this._newCardImage.src = this._link;
+    this._newCardImage.alt = `Фото ${this._name}`;
+    this._newCard.querySelector(".cards__title").textContent = this._name;
     this._setEventListeners();
-    return this._view;
-  };
+    return this._newCard;
+  }
 }

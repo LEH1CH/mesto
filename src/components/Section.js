@@ -5,19 +5,19 @@ export default class Section {
     this._container = document.querySelector(containerSelector);
   }
 
-  _clear() {
-    this._container.innerHTML = "";
+  //Метод создания одиночной карточки и добавления её в DOM
+  renderCard(cardData) {
+    const cardElement = this._renderer(cardData);
+    this.addItem(cardElement);
   }
 
-  renderItems() {
-    this._clear();
-
-    this._renderedItems.forEach((item) => {
-      this._renderer(item);
-    });
+  //Метод создания карточек исходного массива
+  renderInitialCards() {
+    this._renderedItems.forEach((item) => this.renderCard(item));
   }
 
-  setItem(element) {
+  //Метод добавления вёрстки карточки в DOM
+  addItem(element) {
     this._container.prepend(element);
   }
 }

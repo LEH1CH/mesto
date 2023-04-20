@@ -1,33 +1,55 @@
 export default class Popup {
-  constructor(selector) {
-    this._popup = document.querySelector(selector);
-    this._handleEscClose = this._handleEscClose.bind(this);
+  constructor(popupSelector) {
+    this._popup = document.querySelector(popupSelector);
   }
 
-  _handleEscClose(evt) {
-    if (evt.key === "Escape") {
-      this.close();
-    }
-  }
-
-  open() {
-    this._popup.classList.add("popup_opened");
-    document.addEventListener("keydown", this._handleEscClose);
-  }
-
-  close() {
-    this._popup.classList.remove("popup_opened");
-    document.removeEventListener("keydown", this._handleEscClose);
-  }
+  //Установка обработчиков попапа
 
   setEventListeners() {
-    this._popup.addEventListener("mousedown", (evt) => {
-      if (
-        evt.target.classList.contains("popup_opened") ||
-        evt.target.classList.contains("popup__close")
-      ) {
-        this.close();
-      }
-    });
+    this._popup.addEventListener("mousedown", this._handlerPopupCloseOnClick);
+
+    this._popup
+
+      .querySelector(".popup__close")
+
+      .addEventListener("click", this._handlerPopupCloseOnExitClick);
+  }
+
+  //Функция включения popup
+
+  openPopup = function () {
+    this._popup.classList.add("popup_opened");
+
+    window.addEventListener("keydown", this._handlerPopupCloseOnEscKeyDown);
+  };
+
+  //Обработчик закрытия поклику на крестик или оверлей
+
+  _handlerPopupCloseOnExitClick = () => {
+    this.closePopup();
+  };
+
+  //Обработчик закрытия поклику на крестик или оверлей
+
+  _handlerPopupCloseOnClick = (evt) => {
+    if (evt.target.classList.contains("popup_opened")) {
+      this.closePopup();
+    }
+  };
+
+  //Обработчик нажатия Esc
+
+  _handlerPopupCloseOnEscKeyDown = (e) => {
+    if (e.key === "Escape") {
+      this.closePopup();
+    }
+  };
+
+  //Функция выключения popup
+
+  closePopup() {
+    window.removeEventListener("keydown", this._handlerPopupCloseOnEscKeyDown);
+
+    this._popup.classList.remove("popup_opened");
   }
 }
