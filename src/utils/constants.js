@@ -11,7 +11,7 @@ export const config = {
 //Данные для api связи с сервером
 export const connectionConfig = {
   server: "https://mesto.nomoreparties.co/v1",
-  profileDataPath: "users/me ",
+  profileDataPath: "users/me",
   cardsDataPath: "cards",
   token: "9015b21c-073a-42b5-b160-2016f514138f",
   group: "cohort-64",
