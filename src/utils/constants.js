@@ -1,37 +1,3 @@
-import zaliv from "../images/zaliv.jpg";
-import ozero from "../images/gora1.jpg";
-import doroga from "../images/doroga.jpg";
-import ostrovok from "../images/gora3.jpg";
-import otrajenie from "../images/gora4.jpg";
-import gori from "../images/gora5.jpg";
-
-export const initialCards = [
-  {
-    name: "Залив",
-    link: zaliv,
-  },
-  {
-    name: "Озеро",
-    link: ozero,
-  },
-  {
-    name: "Дорога",
-    link: doroga,
-  },
-  {
-    name: "Островок",
-    link: ostrovok,
-  },
-  {
-    name: "Отражение",
-    link: otrajenie,
-  },
-  {
-    name: "Горы",
-    link: gori,
-  },
-];
-
 export const config = {
   formSelector: ".popup__container",
   fieldSetSelector: ".popup__items",
@@ -40,4 +6,13 @@ export const config = {
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
+};
+
+//Данные для api связи с сервером
+export const connectionConfig = {
+  server: "https://mesto.nomoreparties.co/v1",
+  profileDataPath: "users/me ",
+  cardsDataPath: "cards",
+  token: "9015b21c-073a-42b5-b160-2016f514138f",
+  group: "cohort-64",
 };
