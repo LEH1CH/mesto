@@ -39,7 +39,7 @@ export default class Api {
   }
 
   //Метод формирования запроса для изменения аватара
-  setUserAvatar({ avatarLink }) {
+  setUserAvatar({ link }) {
     const path = `${this._server}/${this._group}/${
       this._profileDataPath + "/avatar"
     }`;
@@ -50,7 +50,7 @@ export default class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        avatar: avatarLink,
+        avatar: link,
       }),
     };
     console.log(message);
