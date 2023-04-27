@@ -12,32 +12,32 @@ export default class Popup {
   }
 
   //Функция включения popup
-  openPopup() {
+  open() {
     this._popup.classList.add("popup_opened");
     window.addEventListener("keydown", this._handlerPopupCloseOnEscKeyDown);
   }
 
   //Обработчик закрытия поклику на крестик или оверлей
   _handlerPopupCloseOnExitClick = () => {
-    this.closePopup();
+    this.close();
   };
 
   //Обработчик закрытия поклику на крестик или оверлей
   _handlerPopupCloseOnClick = (evt) => {
     if (evt.target.classList.contains("popup_opened")) {
-      this.closePopup();
+      this.close();
     }
   };
 
   //Обработчик нажатия Esc
   _handlerPopupCloseOnEscKeyDown = (e) => {
     if (e.key === "Escape") {
-      this.closePopup();
+      this.close();
     }
   };
 
   //Функция выключения popup
-  closePopup() {
+  close() {
     window.removeEventListener("keydown", this._handlerPopupCloseOnEscKeyDown);
     this._popup.classList.remove("popup_opened");
   }

@@ -85,7 +85,7 @@ const section = new Section((cardData, id = cardData.owner._id) => {
     isLikedByMe,
     handlePutLike,
     handleDeleteLike,
-    (cardId, cardEl) => confirmPopup.openPopup(cardId, cardEl)
+    (cardId, cardEl) => confirmPopup.open(cardId, cardEl)
   );
   const cardElement = newCard.createCard();
   return cardElement;
@@ -129,7 +129,7 @@ const imagePopup = new PopupWithImage({
 imagePopup.setEventListeners();
 
 const handleCardClick = (cardData) => {
-  imagePopup.openPopup(cardData);
+  imagePopup.open(cardData);
 };
 
 /*-----------------------------ПОПАП ДАННЫХ ПРОФИЛЯ-----------------------------*/
@@ -151,7 +151,7 @@ const profilePopup = new PopupWithForm(
           userName: data.name,
           userJob: data.about,
         });
-        profilePopup.closePopup();
+        profilePopup.close();
       })
       .catch((err) => {
         alert(`Запрос на изменение данных профиля не выполнен! Ошибка: ${err}`);
@@ -168,7 +168,7 @@ profilePopup.setEventListeners();
 editButton.addEventListener("click", () => {
   const values = userInfo.getUserInfo();
   profilePopup.setInputValues(values);
-  profilePopup.openPopup();
+  profilePopup.open();
   profilePopupFormValidator.resetValidation();
 });
 
@@ -188,7 +188,7 @@ const cardPopup = new PopupWithForm(
       .addNewCard(cardData)
       .then((res) => {
         section.addItem(res, res.owner._id);
-        cardPopup.closePopup();
+        cardPopup.close();
       })
       .catch((err) => {
         alert(`Запрос на добавление карточки не выполнен! Ошибка: ${err}`);
@@ -203,7 +203,7 @@ cardPopup.setEventListeners();
 
 //Вызов popup-окна добавления карточки нажатием на кнопку с крестиком
 addButton.addEventListener("click", function () {
-  cardPopup.openPopup();
+  cardPopup.open();
   addCardPopupFormValidator.resetValidation();
 });
 
@@ -222,7 +222,7 @@ const avatarPopup = new PopupWithForm(
       .setUserAvatar(lnk)
       .then((data) => {
         userInfo.setUserAvatar({ link: data.avatar });
-        avatarPopup.closePopup();
+        avatarPopup.close();
       })
       .catch((err) => {
         alert(`Запрос на изменение аватара не выполнен! Ошибка: ${err}`);
@@ -235,7 +235,7 @@ const avatarPopup = new PopupWithForm(
 avatarPopup.setEventListeners();
 
 avatarButton.addEventListener("click", () => {
-  avatarPopup.openPopup();
+  avatarPopup.open();
   avatarEditPopupFormValidator.resetValidation();
 });
 
@@ -253,7 +253,7 @@ const confirmPopup = new PopupWithConfirmation(
       .deleteCard(cardId)
       .then(() => {
         cardEl.remove();
-        confirmPopup.closePopup();
+        confirmPopup.close();
       })
       .catch((err) => {
         alert(`Запрос на удаление карточки не выполнен! Ошибка: ${err}`);

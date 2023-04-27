@@ -20,15 +20,15 @@ export default class PopupWithConfirmation extends Popup {
   }
 
   //Метод открытия Popup
-  openPopup(cardId, cardEl) {
-    super.openPopup();
+  open(cardId, cardEl) {
+    super.open();
     this._cardId = cardId;
     this._cardEl = cardEl;
   }
 
   //Метод закрытия попапа
-  closePopup() {
-    super.closePopup();
+  close() {
+    super.close();
     setTimeout(() => this._form.reset(), 400); //пауза перед сбросом, чтобы значения не менялись пока попап гаснет
   }
 }

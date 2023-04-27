@@ -7,7 +7,7 @@ export default class Section {
   //Метод создания одиночной карточки и добавления её в DOM
   addItem(cardData, id = "") {
     const cardElement = this._renderer(cardData, id);
-    this._container.prepend(cardElement);
+    this._container.append(cardElement);
   }
 
   //Метод создания карточек исходного массива
