@@ -20,8 +20,8 @@ export default class UserInfo {
   }
 
   setUserAvatar({
-    avatarLink = "https://cdn.fishki.net/upload/post/2018/04/09/2564924/6170e48a79e36114e8dd12a5d96a9745.jpg",
+    link = "https://cdn.fishki.net/upload/post/2018/04/09/2564924/6170e48a79e36114e8dd12a5d96a9745.jpg",
   }) {
-    this._avatar.style["background-image"] = `url(${avatarLink})`;
+    this._avatar.style["background-image"] = `url(${link})`;
   }
 }
